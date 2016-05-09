@@ -1,8 +1,14 @@
 var express = require("express");
+var bodyParser = require("body-parser");
 var path = require("path");
+
+//controllers
+var schoolController = require("./server/controllers/schoolController");
 
 var app = express();
 app.use(express.static(path.join(__dirname,"app/dist")));
+app.use(bodyParser.json())
+app.use("/api", schoolController);
 
 var server_port = process.env.OPENSHIFT_NODEJS_PORT || 3000
 var server_ip_address = process.env.OPENSHIFT_NODEJS_IP || '127.0.0.1'
