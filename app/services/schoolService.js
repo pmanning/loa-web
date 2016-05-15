@@ -33,8 +33,7 @@ module.exports = {
         var Promise = promise.Promise;
         return new Promise(function (resolve, reject) {
             $.ajax({
-//              url: resourceUrl + "/" + school._id,
-              url: resourceUrl + "/" + school.name,
+              url: resourceUrl + "/" + school._id,
                 method: "DELETE",
                 dataType: "json",
                 success: resolve,
